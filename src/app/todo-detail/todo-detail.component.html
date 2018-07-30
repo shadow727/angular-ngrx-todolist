@@ -1,0 +1,22 @@
+<div *ngIf="todo">
+  <h2>{{todo.title}}</h2>
+  <div><span>id: </span>{{ todo.id}}</div>
+  <div *ngIf="!reviseFlag"><span>title: </span>{{ todo.title }}</div>
+  <div *ngIf="!reviseFlag"><span>content: </span>{{ todo.content }}</div>
+  <div *ngIf="reviseFlag">
+    <label>title:
+      <input [(ngModel)]="todo.title" placeholder="title" />
+    </label>
+  </div>
+  <div *ngIf="reviseFlag">
+      <label>content:
+        <input [(ngModel)]="todo.content" placeholder="content" />
+      </label>
+  </div>
+  <div><span>status: </span>{{status}}</div>
+  <button (click)="goBack()">go back</button>
+  <button *ngIf="reviseFlag" (click)="save()">save</button>
+  <button *ngIf="!reviseFlag" (click)="revise()">revise</button>
+  <button (click)="toggle()">{{ toggleStatus }}</button> 
+</div>
+  

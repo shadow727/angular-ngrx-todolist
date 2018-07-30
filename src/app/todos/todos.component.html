@@ -1,0 +1,19 @@
+<h1>Todo List</h1>
+<ul class="todos">
+  <li *ngFor = "let todo of todos | async">
+    <a routerLink="/detail/{{todo.id}}">
+      <span class="badge">{{todo.id}}</span> {{todo.title}}
+    </a>
+    <button class="delete" title="delete todo" (click)="delete(todo)">delete</button>
+  </li>
+</ul>
+
+<div>
+  <label>Todo Title:
+    <input #todoTitle />
+  </label>
+  <label>Content:
+    <input #todoContent />
+  </label>
+  <button (click)="add(todoTitle.value, todoContent.value); todoTitle.value=''; todoContent.value='' ">add</button>
+</div>
